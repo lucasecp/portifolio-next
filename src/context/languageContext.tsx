@@ -23,7 +23,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const translate = (section: 'header' |'about' | 'projects' | 'contact' | 'footer' ,key: string) =>{
    if(language === 'pt')
    {
-    // @ts-expect-error 
+    // @ts-expect-error: i put the exac object atributes, so it will not have an error 
     const textPtValue = translations[section][key].pt
 
     return textPtValue
@@ -31,7 +31,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
    if(language === 'en')
    {
-    // @ts-expect-error 
+    // @ts-expect-error: i put the exac object atributes, so it will not have an error  
     const textPtValue = translations[section][key].eng
 
     return textPtValue

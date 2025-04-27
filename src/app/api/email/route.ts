@@ -21,9 +21,10 @@ export async function POST(req: Request) {
       subject: `Nova mensagem de ${name}`,
       text: comments,
     });
-
+//error solved
     return NextResponse.json({ error: 'message sent!' }, { status: 200 });
   } catch (e) {
-    NextResponse.json({ error: 'message not sent!' }, { status: 400 });;    
+    console.error(e)
+    NextResponse.json({ error: 'message not sent!' });;    
   }
 }

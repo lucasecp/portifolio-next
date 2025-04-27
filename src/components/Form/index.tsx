@@ -20,42 +20,47 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 
-
-
 export const FormSection = () => {
-    const { translate, language } = useLanguage();
+  const { translate, language } = useLanguage();
 
-    const formSchema = z.object({
-        name: z
+  const formSchema = z.object({
+    name: z
+      .string()
+      .transform((value) => value.replace(/\s+/g, ""))
+      .pipe(
+        z.string().min(2, {
+          message:
+            language === "pt" ? "Seu nome esta faltando." : "Name is required.",
+        })
+      ),
+    email: z
+      .string()
+      .transform((value) => value.replace(/\s+/g, ""))
+      .pipe(
+        z.string().email({
+          message: language === "pt" ? "Email obrigatório." : "Email required",
+        })
+      ),
+    comments: z
+      .string()
+      .transform((value) => value.replace(/\s+/g, ""))
+      .pipe(
+        z
           .string()
-          .transform((value) => value.replace(/\s+/g, ""))
-          .pipe(
-            z.string().min(2, {
-              message: language === 'pt' ? "Seu nome esta faltando.": "Name is required.",
-            })
-          ),
-        email: z
-          .string()
-          .transform((value) => value.replace(/\s+/g, ""))
-          .pipe(
-            z.string().email({
-              message: language === 'pt' ? "Email obrigatório.": 'Email required',
-            })
-          ),
-        comments: z
-          .string()
-          .transform((value) => value.replace(/\s+/g, ""))
-          .pipe(
-            z
-              .string()
-              .min(2, {
-                message: language === 'pt' ? "Campo obrigatório.": 'Please, write your message.',
-              })
-              .max(300, {
-                message: language === 'pt' ? "Você atingiu o máximo de caracteres" : 'You have reached the maximum number of characters',
-              })
-          ),
-      });
+          .min(2, {
+            message:
+              language === "pt"
+                ? "Campo obrigatório."
+                : "Please, write your message.",
+          })
+          .max(300, {
+            message:
+              language === "pt"
+                ? "Você atingiu o máximo de caracteres"
+                : "You have reached the maximum number of characters",
+          })
+      ),
+  });
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -72,9 +77,19 @@ export const FormSection = () => {
     try {
       await sendMessage(values);
       form.reset();
-      toast.success( language === 'pt' ? "Obrigado! Responderei em breve :)": 'Thank you for your message :)');
-    } catch (e: Error) {
-      toast.error(language === 'pt' ? "Algo deu errado, tente novamente mais tarde.": 'something went wrong', {});
+      toast.success(
+        language === "pt"
+          ? "Obrigado! Responderei em breve :)"
+          : "Thank you for your message :)"
+      );
+    } catch (e) {
+      console.error(e);
+      toast.error(
+        language === "pt"
+          ? "Algo deu errado, tente novamente mais tarde."
+          : "something went wrong",
+        {}
+      );
     }
   };
 
@@ -86,9 +101,12 @@ export const FormSection = () => {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{translate('contact','inputA')}</FormLabel>
+              <FormLabel>{translate("contact", "inputA")}</FormLabel>
               <FormControl>
-                <Input placeholder={translate('contact','inputA')} {...field} />
+                <Input
+                  placeholder={translate("contact", "inputA")}
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -112,9 +130,12 @@ export const FormSection = () => {
           name="comments"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>{translate('contact','inputB')}</FormLabel>
+              <FormLabel>{translate("contact", "inputB")}</FormLabel>
               <FormControl>
-                <Textarea placeholder={translate('contact','inputB')} {...field} />
+                <Textarea
+                  placeholder={translate("contact", "inputB")}
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -123,11 +144,11 @@ export const FormSection = () => {
         {isLoading ? (
           <Button disabled size="lg">
             <Loader2 className="animate-spin" />
-            {language === 'pt' ? 'Enviando' : 'Sending'}
+            {language === "pt" ? "Enviando" : "Sending"}
           </Button>
         ) : (
           <Button type="submit" size="lg" className="cursor-pointer">
-            {language === 'pt' ? 'Enviar' : 'Send'}
+            {language === "pt" ? "Enviar" : "Send"}
           </Button>
         )}
       </form>
