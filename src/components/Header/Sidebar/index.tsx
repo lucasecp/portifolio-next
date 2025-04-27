@@ -30,7 +30,7 @@ export const Sidebar = () => {
                 Sobre
               </Link> */}
             <Link
-              href="/contato"
+              href="/"
               className="text-xl gap-3 flex items-center text-gray-700 "
             >
               <BookUser />

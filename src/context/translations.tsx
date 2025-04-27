@@ -23,8 +23,22 @@ export const translations = {
       eng: "Web Developer",
     },
     titleC: {
-      pt: <>Sou especialista em React e no <br/> esenvolvimento de aplicações <br/> web escaláveis e de alta <br/> qualidade</>,
-      eng: <>I{"'"}m a React specialist focused on creating scalable and <br/> high-quality web applications.</>
+      pt: (
+        <>
+          Sou especialista em desenvolvimento Front-end{" "}
+          <br className="hidden sm:block" /> com foco na criação de aplicações
+          <br className="hidden sm:block" /> web escaláveis, modernas e de alta{" "}
+          <br className="hidden sm:block" /> qualidade
+        </>
+      ),
+      eng: (
+        <>
+          I{"'"}m web specialist dedicated to building scalable{" "}
+          <br className="hidden sm:block" /> high-quality web applications that
+          deliver <br className="hidden sm:block" /> exceptional performance and
+          user experience.
+        </>
+      ),
     },
     button: {
       pt: "Currículo",
@@ -54,13 +68,13 @@ export const translations = {
     },
   },
   contact: {
-    title:{
-        pt: "Contato",
-        eng: "Contact",
+    title: {
+      pt: "Contato",
+      eng: "Contact",
     },
-    smallTitle:{
-        pt: "Siga nas Redes",
-        eng: "Follow me",
+    smallTitle: {
+      pt: "Siga nas Redes",
+      eng: "Follow me",
     },
 
     inputA: {
@@ -74,12 +88,12 @@ export const translations = {
   },
   footer: {
     textA: {
-        pt: "@Lucas 2025 | Todos os direitos reservados",
-        eng: "@Lucas 2025 | All rights reserved",
-      },
+      pt: "@Lucas 2025 | Todos os direitos reservados",
+      eng: "@Lucas 2025 | All rights reserved",
+    },
     textB: {
-        pt: "Feito com",
-        eng: "Made with",
-      },
-  }
+      pt: "Feito com",
+      eng: "Made with",
+    },
+  },
 };

@@ -35,7 +35,7 @@ export const Skills = () => {
         <Slider {...settings}>
           <Image
             alt="nextjs"
-            className="rounded-sm  ml-1"
+            className="rounded-sm  mx-1"
             width={70}
             height={70}
             src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original-wordmark.svg"
@@ -43,7 +43,7 @@ export const Skills = () => {
 
           <Image
             alt="tailwind"
-            className="rounded-sm  ml-1"
+            className="rounded-sm "
             width={100}
             height={100}
             src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-plain-wordmark.svg"

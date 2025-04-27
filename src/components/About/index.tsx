@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 import { Skills } from "./skills";
 import { Download } from 'lucide-react';
 export const About = () => {
-    const { translate } = useLanguage();
+    const { translate, language } = useLanguage();
 
   return (
     <>
@@ -19,9 +19,9 @@ export const About = () => {
         {  translate('about','titleC')}
           </p>
           <div className="flex flex-col items-center justify-center">
-          <div className="bg-[url(/images/lucasprofile.PNG)] sm:size-60 md:hidden size-40 rounded-full bg-center bg-cover "/>
+          <div className="bg-[url(/images/lucasprofile.PNG)] sm:size-60 md:hidden mt-4 sm:mt-0 size-40 rounded-full bg-center bg-cover "/>
           <Button size='lg' asChild  className="mt-3 mb-9">
-            <a href="/images/curriculo.pdf" download className="flex gap-1">
+            <a href={language === 'pt' ?'/images/curriculo.pdf': '/images/LucasEU.pdf'} download className="flex gap-1">
             <Download/>  {translate('about','button')}
             </a>
           </Button>
