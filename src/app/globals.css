@@ -95,3 +95,9 @@
   color: var(--color-gray-700) !important
 }
 
+html {
+  color-scheme: light;
+  background-color: #ffffff;
+  color: #000000;
+}
+
