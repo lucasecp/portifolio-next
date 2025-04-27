@@ -28,10 +28,10 @@ export const Header = () => {
             <Link href="/" className="text-xl ml-4">
               {translate('header','menuA')}
             </Link>
-            <Link href="/sobre" className="text-xl">
+            <Link href="/" className="text-xl">
             {translate('header','menuB')}
             </Link>
-            <Link href="/contato" className="text-xl">
+            <Link href="/" className="text-xl">
               {translate('header','menuC')}
             </Link>
           </header>
