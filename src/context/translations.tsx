@@ -73,8 +73,8 @@ export const translations = {
       eng: "Contact",
     },
     smallTitle: {
-      pt: "Siga nas Redes",
-      eng: "Follow me",
+      pt: "Redes para contato:",
+      eng: "Reach me on:",
     },
 
     inputA: {

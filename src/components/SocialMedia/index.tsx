@@ -10,7 +10,16 @@ export const SocialMedia = () => {
     <>
       <div className="justify-self-center">
         <SmallTile>{translate('contact', 'smallTitle')}</SmallTile>
-        <div className="flex gap-2 mt-3">
+        <div className="flex gap-2 mt-3 items-center">
+          <a href="mailto:lucasecp7@gmail.com" target="_blank">
+            <Image
+              src={"/icons/gmail.svg"}
+              width={50}
+              height={50}
+              alt="gmail"
+              className=""
+            />
+          </a>
           <a href="https://www.linkedin.com/in/lucas-emerson" target="_blank">
             <Image
               src={"/icons/linkedin.svg"}
